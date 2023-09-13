@@ -13,10 +13,38 @@ const images = [
 ]
 
 for(let i = 0; i < images.length; i++){
+
     const image = images[i];
-    itemsWrapper.innerHTML += `<img src="${image}" class= " w-100 h-100 object-fit-cover">`;
+
+    itemsWrapper.innerHTML += `<img src="${image}" class= " w-100 h-100 object-fit-cover d-none item">`;
 }
 
+let counter = 0;
 
+const itemsCollection = document.getElementsByClassName('item');
+
+itemsCollection[counter].classList.remove('d-none');
+
+
+up.addEventListener('click', function(){
+
+    itemsCollection[counter].classList.add('d-none');
+
+    counter++;
+
+    itemsCollection[counter].classList.remove('d-none');
+
+})
+
+
+down.addEventListener('click', function(){
+
+    itemsCollection[counter].classList.add('d-none');
+
+    counter--;
+
+    itemsCollection[counter].classList.remove('d-none');
+
+})
 
 

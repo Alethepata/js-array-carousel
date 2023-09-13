@@ -11,3 +11,12 @@ const images = [
     'img/04.webp',
     'img/05.webp'
 ]
+
+for(let i = 0; i < images.length; i++){
+    const image = images[i];
+    itemsWrapper.innerHTML += `<img src="${image}" class= " w-100 h-100 object-fit-cover">`;
+}
+
+
+
+

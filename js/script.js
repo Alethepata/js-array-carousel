@@ -1,7 +1,8 @@
-console.log('Ciao');
 
 const itemsWrapper = document.querySelector('.items-wrapper');
+
 const up = document.querySelector('.top');
+
 const down = document.querySelector('.bottom');
 
 const images = [
@@ -25,6 +26,7 @@ const itemsCollection = document.getElementsByClassName('item');
 
 itemsCollection[counter].classList.remove('d-none');
 
+down.classList.add('d-none');
 
 up.addEventListener('click', function(){
 
@@ -34,8 +36,14 @@ up.addEventListener('click', function(){
 
     itemsCollection[counter].classList.remove('d-none');
 
-})
+    down.classList.remove('d-none');
 
+    if(counter === itemsCollection.length - 1){
+
+        up.classList.add('d-none');
+    }
+
+})
 
 down.addEventListener('click', function(){
 
@@ -45,6 +53,13 @@ down.addEventListener('click', function(){
 
     itemsCollection[counter].classList.remove('d-none');
 
+    if(counter === 0){
+
+        down.classList.add('d-none');
+        up.classList.remove('d-none');
+
+    }
+  
 })
 
 

@@ -20,6 +20,7 @@ for(let i = 0; i < images.length; i++){
     itemsWrapper.innerHTML += `<img src="${image}" class= " w-100 h-100 object-fit-cover d-none item">`;
 }
 
+
 let counter = 0;
 
 const itemsCollection = document.getElementsByClassName('item');
@@ -28,38 +29,48 @@ itemsCollection[counter].classList.remove('d-none');
 
 down.classList.add('d-none');
 
-up.addEventListener('click', function(){
+
+up.addEventListener('click', next);
+
+down.addEventListener('click', prev);
+
+
+function next(){
+nextPrev(true);
+}
+function prev(){
+    nextPrev(false);
+}
+
+
+function nextPrev(isNext){
 
     itemsCollection[counter].classList.add('d-none');
 
-    counter++;
+    if(isNext){
+
+        counter++;
+    
+        down.classList.remove('d-none');
+    
+        if(counter === itemsCollection.length - 1){
+    
+            up.classList.add('d-none');
+        }
+
+    }else{
+
+        counter--;
+
+        if(counter === 0){
+    
+            down.classList.add('d-none');
+            up.classList.remove('d-none');
+    
+        }
+    }
 
     itemsCollection[counter].classList.remove('d-none');
 
-    down.classList.remove('d-none');
-
-    if(counter === itemsCollection.length - 1){
-
-        up.classList.add('d-none');
-    }
-
-})
-
-down.addEventListener('click', function(){
-
-    itemsCollection[counter].classList.add('d-none');
-
-    counter--;
-
-    itemsCollection[counter].classList.remove('d-none');
-
-    if(counter === 0){
-
-        down.classList.add('d-none');
-        up.classList.remove('d-none');
-
-    }
-  
-})
-
+}
 
